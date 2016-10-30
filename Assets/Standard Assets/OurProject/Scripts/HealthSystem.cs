@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour {
 
     // Use this for initialization
-    public float health = 100f;                         // How much health the player has left.
+    private float health;                         // How much health the player has left.
     //public float resetAfterDeathTime = 5f;              // How much time from the player dying to the level reseting.
     //public AudioClip deathClip;                         // The sound effect of the player dying.
 
-
+    private Slider healthBar;
    // private Animator anim;                              // Reference to the animator component.
     //private PlayerMovement playerMovement;              // Reference to the player movement script.
    // private HashIDs hash;                               // Reference to the HashIDs.
@@ -26,7 +27,15 @@ public class HealthSystem : MonoBehaviour {
     //    lastPlayerSighting = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<LastPlayerSighting>();
     }
     void Start () {
-
+        if(this.gameObject.tag == "Player")
+        {
+            health = 100f;
+        }
+        else
+        {
+            health = 10f;
+        }
+        healthBar = GameObject.FindGameObjectWithTag("health_bar").GetComponent<Slider>();
     }
 	
 	// Update is called once per frame
@@ -53,7 +62,8 @@ public class HealthSystem : MonoBehaviour {
     {
         // Decrement the player's health by amount.
         health -= amount;
-        
+        healthBar.value = health;
+
     }
 }
 

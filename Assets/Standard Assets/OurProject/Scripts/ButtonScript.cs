@@ -24,15 +24,18 @@ public class ButtonScript : MonoBehaviour {
 
     void buttonClicked(GameObject gObject)
     {
+        //Start Button
         if (gObject.tag == "start_button")
         {
             SceneManager.LoadScene("tutorial_level");
         }
+        //Option Button
         else if(gObject.tag == "option_button")
         {
             SceneManager.LoadScene("option_scene");
         }
-        else if (gObject.tag == "toggle_bgm")
+        //Mute Button
+        else if (gObject.tag == "toggle_bgm") 
         {
             if (bgm.isPlaying)
                 bgm.Pause();
