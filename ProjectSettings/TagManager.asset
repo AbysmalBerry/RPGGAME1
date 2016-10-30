@@ -8,6 +8,7 @@ TagManager:
   - start_button
   - option_button
   - toggle_bgm
+  - health_bar
   layers:
   - Default
   - TransparentFX
